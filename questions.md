@@ -121,10 +121,14 @@ fi
    and will save you loads of frustration and prevent you from taking out your colleagues jobs on the cluster,
    preventing you from getting nasty emails from Harry!!!!!!!!!!!**
 
+##### Yes this is very true. Harry is already busy as it is. Lets not make more unecessary work for him by being lazy. :)
+
    Assuming the node has 512gb and 64 cores that comes out to 8gb/core.   
    Since we need 24gb of memory, it will require 25/8 =3.125cores.   
    If the result of core is in decimal, always round up.   
    Therefore, we need 4 cores for 25 gb of memory Then, the SGE job script will need to have   
+
+##### although theoritically this is correct. In practice you should also account for the amount of ram used for overhead. I recall this being a major issue when I was helping test PSC Bridges, in that nodes were crashing because we were considering the total amount of RAM as actually being available, when in practice it was not true. I do not remember the exact figure but I always remove about 20GB from that calculation for overhead.
 
 ```
 #$ -pe openmp 4
